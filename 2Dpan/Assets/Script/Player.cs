@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [Header("跳躍高度")]
     public float jamphight = 500;
     [Header("破關層數"), Tooltip("角色往下幾層")]
-    public int LV;
+    private int LV;
     [Header("碰撞音效")]
     public AudioClip audcol;
     [Header("跳躍音效")]
@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     private bool dead;
     [Header("剛體")]
     public Rigidbody2D rig;
-
+    [Header("角色移動儲存")]
     Vector2 movement;
     [Header("動畫控制器")]
     public Animator ani;
@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     public GameObject final;
     [Header("標題")]
     public Text textTitle;
+   
 
     #endregion
 
@@ -53,11 +54,6 @@ public class Player : MonoBehaviour
         ani.SetBool("跳躍開關",true);
         
     }
-
-    /// <summary>
-    /// 腳色短暫停留: 碰到地板翻轉
-    /// </summary>
-   
 
     /// <summary>
     /// 回復血量:碰撞地板回復、碰撞音效
@@ -116,6 +112,9 @@ public class Player : MonoBehaviour
       
     }
 
+    /// <summary>
+    /// 使用鋼體專用的
+    /// </summary>
     private void FixedUpdate()
     {
         if (dead) return;
@@ -134,7 +133,11 @@ public class Player : MonoBehaviour
         {
             Pass();
         }
-        
+
+        if (collision.name == "Main Camera")
+        {
+            Dead();
+        }
     }
 
     #endregion
