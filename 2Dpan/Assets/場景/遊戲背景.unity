@@ -12059,7 +12059,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 15
+  m_GravityScale: 25
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -37062,7 +37062,7 @@ CompositeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: cbef80748c98f224ea14fe016d1aef7e, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -37999,9 +37999,9 @@ EdgeCollider2D:
   - {x: -8.907455, y: -5.559309}
   - {x: -0.062963486, y: -5.534054}
   - {x: 8.5193615, y: -5.5903244}
-  - {x: 8.41612, y: 6.1109314}
-  - {x: 0.019562006, y: 6.1329126}
-  - {x: -8.856271, y: 6.088847}
+  - {x: 8.497643, y: 5.0918636}
+  - {x: -0.14348912, y: 5.113846}
+  - {x: -8.774745, y: 4.9474926}
   - {x: -8.874855, y: 5.5753536}
 --- !u!114 &2001867361
 MonoBehaviour:
@@ -38016,6 +38016,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  countFloor: 0
+  textCount: {fileID: 802315318}
   transform: {fileID: 2001867362}
 --- !u!4 &2001867362
 Transform:

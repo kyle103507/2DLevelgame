@@ -51,8 +51,16 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Jump()
     {
-        ani.SetBool("跳躍開關",true);
-        
+        ani.SetBool("跳躍開關", true);
+
+    }
+
+    /// <summary>
+    ///延遲物體:
+    /// </summary>
+    private void DelayObject()
+    {
+        rig.gravityScale = 9;
     }
 
     /// <summary>
@@ -60,7 +68,7 @@ public class Player : MonoBehaviour
     /// </summary>
     private void Reply()
     {
-        
+
     }
 
     /// <summary>
@@ -72,7 +80,7 @@ public class Player : MonoBehaviour
         imgHP.fillAmount = hp / hpMax;          //血條.填滿長度 = 血量 / 血量最大值
 
         if (hp < 0) Dead();                     //死亡觸發
-        
+
     }
 
     /// <summary>
@@ -81,7 +89,7 @@ public class Player : MonoBehaviour
     private void Dead()
     {
         if (dead) return;                           //如果死亡就跳出
-        
+
         speed = 0;
         ani.SetTrigger("死亡觸發");               //觸發死亡動畫
         final.SetActive(true);                      //結束畫面.啟動設定
@@ -109,7 +117,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Move();
-      
+
     }
 
     /// <summary>
@@ -137,6 +145,11 @@ public class Player : MonoBehaviour
         if (collision.name == "Main Camera")
         {
             Dead();
+        }
+
+        if (collision.name == "反轉地板")
+        {
+            DelayObject();
         }
     }
 
